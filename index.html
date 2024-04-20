@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うわさの広がりとフィボナッチ数列</title>
+
+<body>
+  <h1>噂の広がりとフィボナッチ数列</h1>
+  <p>下の入力欄に好きな数字を入力してください（空白or数字以外だと認識されずエラーが出ます）</p>
+</body>
+  
+<script>
+
+    function addNumbers(){
+    var syo = parseFloat(document.getElementById('syo').value);
+    var hen1 = parseFloat(document.getElementById('hen1').value);
+    var hen2 = parseFloat(document.getElementById('hen2').value);
+    document.getElementsByTagName("td")[0].textContent = 0;
+    document.getElementsByTagName("td")[1].textContent = 0;
+    document.getElementsByTagName("td")[2].textContent = 0;
+    document.getElementsByTagName("td")[3].textContent = 0;
+    document.getElementsByTagName("td")[4].textContent = 0;
+    document.getElementsByTagName("td")[5].textContent = syo;
+    document.getElementsByTagName("td")[6].textContent = 0;
+    document.getElementsByTagName("td")[7].textContent = 0;
+    document.getElementsByTagName("td")[8].textContent = syo;
+
+    
+    
+
+    for(let i = 1; i <= 19; i++){
+
+    day1 = parseFloat(document.getElementsByTagName("td")[5 * i].textContent);
+    day2 = parseFloat(document.getElementsByTagName("td")[(5 * i)+1].textContent);
+    day3 = parseFloat(document.getElementsByTagName("td")[(5 * i)+2].textContent);
+    sum1 = parseFloat(document.getElementsByTagName("td")[(5 * i)-2].textContent);
+
+    date1 =  (day1 * hen1) + (day2 * hen2)
+    date2 = day1
+    date3 = day2 + day3
+
+    
+    
+    document.getElementsByTagName("td")[(5 * i)+5].textContent = date1;
+    document.getElementsByTagName("td")[(5 * i)+6].textContent = date2;
+    document.getElementsByTagName("td")[(5 * i)+7].textContent = date3;
+
+   
+    sum2 = day1 + day2 + day3
+    document.getElementsByTagName("td")[(5 * i)+3].textContent = sum2;
+
+    fibo = sum2 - sum1
+    document.getElementsByTagName("td")[(5 * i)+4].textContent = fibo;
+
+    fff = parseFloat(document.getElementsByTagName("td")[100].textContent);
+    ggg = parseFloat(document.getElementsByTagName("td")[101].textContent);
+    hhh = parseFloat(document.getElementsByTagName("td")[102].textContent);
+    
+    naz1 = fff + ggg + hhh
+
+    document.getElementsByTagName("td")[103].textContent = naz1;
+    jjj = parseFloat(document.getElementsByTagName("td")[98].textContent);
+    naz2 = naz1 - jjj
+    document.getElementsByTagName("td")[104].textContent = naz2;
+    
+
+
+}
+    }
+</script>
+</head>
+<body>
+  <table border="1" style="border-collapse: collapse" >
+
+    <tr>
+      <th>日数</th><th>1日目</th><th>2日目</th><th>3日目以降</th><th>合計</th><th>数列</th>
+    </tr>
+    <tr>
+      <th>0日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>1日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>2日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>3日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr> 
+      <th>4日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr> 
+      <th>5日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>6日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>7日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>8日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>9日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>10日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>11日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>12日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>13日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>14日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>15日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>16日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>17日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>18日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>19日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+    <tr>
+      <th>20日</th><td></td><td></td><td></td><td></td><td></td>
+    </tr> 
+  </table>
+
+  <h1>数列を生成する</h1>
+  <input type="text" id="syo" placeholder="最初に知っている人数は？">
+  <input type="text" id="hen1" placeholder="一日目に増える人数は？">
+  <input type="text" id="hen2" placeholder="二日目に増える人数は？">
+    
+    
+
+  <button onclick="addNumbers()">数列を生成する</button>
+  <p id="result"></p>
+
+  <p>数字の例：最初に知っている人数1、一日目に伝える人数1、二日目に伝える人数1→数列の欄（縦列）にフィボナッチ数列が出現</p>
+  <p>※あまり大きい数字を入力されるとオーバーフローするかも...</p>
+
+</body>
+
+
+</html>
